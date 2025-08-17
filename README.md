@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Samanta & Ivan - Wedding Invitation
+
+A beautiful, responsive wedding invitation website built with Next.js and TypeScript.
+
+## Features
+
+- **Responsive Design**: Looks great on all devices
+- **Countdown Timer**: Real-time countdown to the wedding date
+- **Interactive Gallery**: Photo carousel with navigation
+- **Modal Information**: Dress code and tips displayed in elegant modals
+- **Action Buttons**: Calendar integration, attendance confirmation, and directions
+- **Social Media Integration**: Instagram hashtag and sharing
+- **Customizable Content**: All text and data stored in a single configuration file
+
+## Sections
+
+1. **Intro Section**: Hero image, couple names, date, and quote
+2. **Timer Section**: Countdown to the wedding date
+3. **Details Section**: Event information and action buttons
+4. **Gallery Section**: Photo carousel with navigation
+5. **Info Section**: Dress code and tips with modal popups
+6. **Gifts Section**: Gift information modal
+7. **Hashtag Section**: Instagram sharing
+8. **Footer Section**: Quick links and social media
+
+## Customization
+
+### 1. Update Wedding Data
+
+Edit `src/data/weddingData.ts` to customize all content:
+
+```typescript
+export const weddingData: WeddingData = {
+  coupleNames: "Samanta & Ivan",
+  weddingDate: "15.05.2025",
+  weddingTime: "17:00",
+  quote: "Your custom quote here",
+  eventLocation: "Your venue name",
+  eventAddress: "Your venue address",
+  // ... more customization options
+};
+```
+
+### 2. Replace Images
+
+Replace the placeholder images with your actual photos:
+
+- **Hero Image**: Update the URL in `IntroSection.tsx`
+- **Gallery Images**: Update the URLs in `weddingData.ts`
+
+### 3. Update Links
+
+Update the action URLs in `weddingData.ts`:
+
+- `calendarUrl`: Google Calendar event link
+- `attendanceUrl`: RSVP form link
+- `directionsUrl`: Google Maps directions link
+- `instagramUrl`: Instagram profile link
+
+### 4. Customize Colors
+
+The color scheme uses warm, elegant tones:
+- Primary: `#8B4513` (Saddle Brown)
+- Secondary: `#A0522D` (Sienna)
+- Accent: `#CD853F` (Peru)
+- Background: Cream and beige gradients
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site can be deployed to Vercel, Netlify, or any other hosting platform that supports Next.js.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 15**: React framework
+- **TypeScript**: Type safety
+- **CSS-in-JS**: Styled components with styled-jsx
+- **Google Fonts**: Playfair Display and Inter fonts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the MIT License.
