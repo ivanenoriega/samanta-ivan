@@ -1,0 +1,54 @@
+// Font families
+$font-playfair: 'Playfair Display', serif;
+$font-inter: 'Inter', sans-serif;
+
+// Primary colors
+$olive-green: #A4AC86;
+$forest-green: #3B4A3F;
+$wood-brown: #8B6B4A;
+$smoke-gray: #4D4D4D;
+$chalk-white: #F5F4F0;
+$linen-beige: #D8CFC4;
+
+// Semantic colors
+$primary: $olive-green;
+$secondary: $forest-green;
+$accent: $wood-brown;
+$text: $smoke-gray;
+$background: $chalk-white;
+$surface: $linen-beige;
+
+// Transparent versions
+$olive-green-transparent: rgba(164, 172, 134, 0.1);
+$forest-green-transparent: rgba(59, 74, 63, 0.1);
+$wood-brown-transparent: rgba(139, 107, 74, 0.1);
+$smoke-gray-transparent: rgba(77, 77, 77, 0.1);
+
+// Shadow colors
+$shadow-light: rgba(77, 77, 77, 0.1);
+$shadow-medium: rgba(77, 77, 77, 0.2);
+$shadow-dark: rgba(77, 77, 77, 0.3);
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+// Border radius
+$border-radius-sm: 8px;
+$border-radius-md: 15px;
+$border-radius-lg: 20px;
+$border-radius-xl: 25px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;

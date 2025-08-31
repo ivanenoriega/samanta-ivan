@@ -1,0 +1,113 @@
+@use 'variables' as *;
+
+// Responsive mixins
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button mixins
+@mixin button-base {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: $border-radius-xl;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all $transition-normal;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $wood-brown;
+  color: $chalk-white;
+
+  &:hover {
+    background: $forest-green;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $wood-brown;
+  border: 2px solid $wood-brown;
+
+  &:hover {
+    background: $wood-brown;
+    color: $chalk-white;
+  }
+}
+
+// Card mixins
+@mixin card {
+  background: $surface;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: 0 4px 8px $shadow-light;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px $shadow-light;
+  }
+}
+
+// Typography mixins
+@mixin heading-primary {
+  font-family: $font-playfair;
+  color: $wood-brown;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@mixin heading-secondary {
+  font-family: $font-playfair;
+  color: $wood-brown;
+  font-weight: 300;
+}
+
+// Container mixins
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+@mixin section-padding {
+  padding: $spacing-xxl $spacing-lg;
+}

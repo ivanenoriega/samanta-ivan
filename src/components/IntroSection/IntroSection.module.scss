@@ -1,0 +1,84 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.introSection {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    $chalk-white 0%,
+    $linen-beige 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.introContainer {
+  @include flex-between;
+  @include container;
+  min-height: 100vh;
+}
+
+.heroImage {
+  flex: 1;
+  position: relative;
+}
+
+.heroImg {
+  border-radius: $border-radius-lg;
+  object-fit: cover;
+  box-shadow: 0 20px 40px $shadow-light;
+}
+
+.introContent {
+  flex: 1;
+  text-align: center;
+  padding: $spacing-lg;
+}
+
+.logoContainer {
+  margin-bottom: $spacing-lg;
+  @include flex-center;
+}
+
+.weddingLogo {
+  max-width: 200px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px $shadow-light);
+}
+
+.dateDisplay {
+  @include heading-secondary;
+  font-size: 2rem;
+  margin-bottom: $spacing-sm;
+}
+
+.coupleNames {
+  @include heading-primary;
+  font-size: 4rem;
+  margin-bottom: $spacing-lg;
+}
+
+.quote {
+  font-size: 1.2rem;
+  color: $forest-green;
+  font-style: italic;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+}
+
+@include mobile {
+  .introContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .coupleNames {
+    font-size: 2.5rem;
+  }
+
+  .dateDisplay {
+    font-size: 1.5rem;
+  }
+}

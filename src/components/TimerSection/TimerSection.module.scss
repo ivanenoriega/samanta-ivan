@@ -1,0 +1,88 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.timerSection {
+  background: linear-gradient(
+    135deg,
+    $linen-beige 0%,
+    $surface 100%
+  );
+  @include section-padding;
+  position: relative;
+}
+
+.timerContainer {
+  @include container;
+  @include flex-center;
+}
+
+.timerCircle {
+  background: $chalk-white;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  @include flex-center;
+  box-shadow: 0 20px 40px $shadow-light;
+  border: 3px solid $wood-brown;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid $olive-green;
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.timerContent {
+  text-align: center;
+}
+
+.timerTitle {
+  @include heading-primary;
+  font-size: 1.5rem;
+  margin-bottom: $spacing-sm;
+}
+
+.timerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+}
+
+.timerItem {
+  @include flex-column;
+  align-items: center;
+}
+
+.timerNumber {
+  @include heading-primary;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.timerLabel {
+  font-size: 0.9rem;
+  color: $forest-green;
+  text-transform: lowercase;
+}
+
+@include mobile {
+  .timerCircle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .timerNumber {
+    font-size: 1.5rem;
+  }
+
+  .timerTitle {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,86 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+:root {
+  --font-playfair: #{$font-playfair};
+  --font-inter: #{$font-inter};
+  
+  /* Color Variables */
+  --olive-green: #{$olive-green};
+  --forest-green: #{$forest-green};
+  --wood-brown: #{$wood-brown};
+  --smoke-gray: #{$smoke-gray};
+  --chalk-white: #{$chalk-white};
+  --linen-beige: #{$linen-beige};
+  
+  /* Semantic colors */
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --accent: #{$accent};
+  --text: #{$text};
+  --background: #{$background};
+  --surface: #{$surface};
+  
+  /* Transparent versions */
+  --olive-green-transparent: #{$olive-green-transparent};
+  --forest-green-transparent: #{$forest-green-transparent};
+  --wood-brown-transparent: #{$wood-brown-transparent};
+  --smoke-gray-transparent: #{$smoke-gray-transparent};
+  
+  /* Shadows */
+  --shadow-light: #{$shadow-light};
+  --shadow-medium: #{$shadow-medium};
+  --shadow-dark: #{$shadow-dark};
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: $font-inter;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8B4513;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A0522D;
+}

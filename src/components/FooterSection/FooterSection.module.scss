@@ -1,0 +1,125 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footerSection {
+  background: $wood-brown;
+  color: white;
+  padding: $spacing-xl $spacing-lg $spacing-lg;
+}
+
+.footerContainer {
+  @include container;
+}
+
+.footerContent {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+}
+
+.footerLeft {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footerNames {
+  @include heading-primary;
+  font-size: 2rem;
+  margin: 0;
+  color: white;
+}
+
+.footerRight {
+  flex: 1;
+  min-width: 300px;
+}
+
+.footerLinks {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+  padding: $spacing-xs 0;
+  transition: all $transition-normal;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom-color: white;
+    transform: translateX(5px);
+  }
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: $spacing-lg;
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.socialIcons {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.socialIcon {
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.footerInfo {
+  @include flex-column;
+  align-items: flex-end;
+  gap: $spacing-xs;
+}
+
+.developerInfo {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.countryButton {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-xl;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+  }
+}
+
+@include mobile {
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerInfo {
+    align-items: center;
+  }
+
+  .footerNames {
+    font-size: 1.5rem;
+  }
+}
