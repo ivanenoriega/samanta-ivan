@@ -2,11 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .timerSection {
-  background: linear-gradient(
-    135deg,
-    $linen-beige 0%,
-    $surface 100%
-  );
   @include section-padding;
   position: relative;
 }

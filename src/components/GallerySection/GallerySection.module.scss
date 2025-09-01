@@ -2,7 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .gallerySection {
-  background: linear-gradient(135deg, $surface 0%, $linen-beige 100%);
   @include section-padding;
 }
 

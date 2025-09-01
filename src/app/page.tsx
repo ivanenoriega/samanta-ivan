@@ -7,10 +7,11 @@ import InfoSection from "@/components/InfoSection";
 import GiftsSection from "@/components/GiftsSection";
 import HashtagSection from "@/components/HashtagSection";
 import FooterSection from "@/components/FooterSection";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.main}>
       <IntroSection data={weddingData} />
       <TimerSection data={weddingData} />
       <DetailsSection data={weddingData} />

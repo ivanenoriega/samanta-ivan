@@ -2,7 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .detailsSection {
-  background: $chalk-white;
   @include section-padding;
 }
 
