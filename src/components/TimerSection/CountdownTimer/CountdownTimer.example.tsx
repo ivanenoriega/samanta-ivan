@@ -3,52 +3,32 @@ import CountdownTimer from "../CountdownTimer";
 
 // Example usage of the CountdownTimer component
 export function CountdownTimerExamples() {
-  // Example time data
-  const sampleTimeLeft = {
-    days: 15,
-    hours: 8,
-    minutes: 30,
-    seconds: 45,
+  // Example wedding data
+  const sampleWeddingData = {
+    coupleNames: "Samanta & Ivan",
+    weddingDate: "22.11.2025",
+    weddingTime: "16:00",
+    quote:
+      "Todos somos mortales, hasta el primer beso y la segunda copa de vino",
+    eventLocation: "El Quincho Multiespacio",
+    eventAddress: "Blas Pascal 5940, X5021 Córdoba",
+    galleryImages: [],
+    hashtag: "#samantaeivan",
+    instagramUrl:
+      "https://www.instagram.com/explore/search/keyword/?q=%23samantaeivan",
+    calendarUrl: "https://calendar.google.com/event?action=TEMPLATE&tmeid=...",
+    attendanceUrl: "https://forms.google.com/attendance",
+    directionsUrl: "https://maps.google.com/?q=...",
+    giftInfo: "Sample gift info",
+    dressCodeInfo: "Sample dress code info",
+    tipsInfo: "Sample tips info",
+    developerInfo: "Desarrollado con ❤️ por samanta-ivan",
   };
 
   return (
     <div>
-      {/* Default usage (Spanish labels) */}
-      <CountdownTimer timeLeft={sampleTimeLeft} />
-
-      {/* Custom title */}
-      <CountdownTimer timeLeft={sampleTimeLeft} title="Time Remaining" />
-
-      {/* Custom labels in English */}
-      <CountdownTimer
-        timeLeft={sampleTimeLeft}
-        title="Countdown"
-        labels={{
-          days: "days",
-          hours: "hrs",
-          minutes: "min",
-          seconds: "sec",
-        }}
-      />
-
-      {/* Custom labels in French */}
-      <CountdownTimer
-        timeLeft={sampleTimeLeft}
-        title="Temps Restant"
-        labels={{
-          days: "jours",
-          hours: "heures",
-          minutes: "minutes",
-          seconds: "secondes",
-        }}
-      />
-
-      {/* With custom className for additional styling */}
-      <CountdownTimer
-        timeLeft={sampleTimeLeft}
-        title="Custom Style"
-        className="custom-timer-class"
-      />
+      {/* Default usage with wedding data */}
+      <CountdownTimer data={sampleWeddingData} />
     </div>
   );
 }

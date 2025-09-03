@@ -1,0 +1,49 @@
+.countdownTimer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timerItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 80px;
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .countdownTimer {
+    gap: 0.5rem;
+  }
+  
+  .timerItem {
+    min-width: 60px;
+  }
+  
+  .number {
+    font-size: 2rem;
+  }
+  
+  .label {
+    font-size: 0.8rem;
+  }
+}

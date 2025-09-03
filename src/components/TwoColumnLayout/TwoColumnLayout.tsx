@@ -10,6 +10,7 @@ import GallerySection from "@/components/GallerySection";
 import InfoSection from "@/components/InfoSection";
 import GiftsSection from "@/components/GiftsSection";
 import HashtagSection from "@/components/HashtagSection";
+import ConfirmationSection from "@/components/ConfirmationSection";
 import FooterSection from "@/components/FooterSection";
 import styles from "./TwoColumnLayout.module.scss";
 
@@ -23,7 +24,8 @@ const localImages = [
   "/images/leftColumn/photo-1511285560929-80b456fea0bc.jpeg", // Info section - detail photo
   "/images/leftColumn/photo-1519741497674-611481863552.jpeg", // Gifts section - couple photo
   "/images/leftColumn/photo-1519225421980-715cb0215aed.jpeg", // Hashtag section - venue photo
-  "/images/leftColumn/photo-1511285560929-80b456fea0bc.jpeg", // Footer section - detail photo
+  "/images/leftColumn/photo-1519741497674-611481863552.jpeg", // Confirmation section - couple photo
+  "/images/leftColumn/photo-1519225421980-715cb0215aed.jpeg", // Footer section - venue photo
 ];
 
 // Fallback images using placeholder services (in case local images fail to load)
@@ -36,7 +38,8 @@ const fallbackImages = [
   "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=1200&fit=crop",
   "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1200&fit=crop",
   "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=1200&fit=crop",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=1200&fit=crop",
+  "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1200&fit=crop",
+  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=1200&fit=crop",
 ];
 
 // Function to get the appropriate image URL
@@ -211,6 +214,8 @@ export default function TwoColumnLayout() {
         <InfoSection data={weddingData} />
         <GiftsSection data={weddingData} />
         <HashtagSection data={weddingData} />
+        <ConfirmationSection data={weddingData} />
+        <FooterSection data={weddingData} />
       </div>
     </div>
   );
