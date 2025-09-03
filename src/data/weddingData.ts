@@ -41,9 +41,26 @@ export const weddingData: WeddingData = {
 
   // Gallery - placeholder images (you can replace with actual image URLs)
   galleryImages: [
-    "https://picsum.photos/400/400?random=1",
-    "https://picsum.photos/400/400?random=2",
-    "https://picsum.photos/400/400?random=3",
+    "/images/gallery/IMG_2260.jpg",
+    "/images/gallery/IMG_2286.jpg",
+    "/images/gallery/IMG_2467.jpg",
+    "/images/gallery/IMG_3458.jpg",
+    "/images/gallery/IMG_3558.jpg",
+    "/images/gallery/IMG_5299.jpg",
+    "/images/gallery/IMG_5448.jpg",
+    "/images/gallery/IMG_5482.jpg",
+    "/images/gallery/IMG_6622.jpg",
+    "/images/gallery/IMG_6624.jpg",
+    "/images/gallery/IMG_6625.jpg",
+    "/images/gallery/IMG_6627.jpg",
+    "/images/gallery/IMG_6672.jpg",
+    "/images/gallery/IMG_7036.jpg",
+    "/images/gallery/IMG_7756.jpg",
+    "/images/gallery/IMG_7757.jpg",
+    "/images/gallery/IMG_7765.jpg",
+    "/images/gallery/IMG_7766.jpg",
+    "/images/gallery/IMG_7767.jpg",
+    "/images/gallery/IMG_9002.jpg",
   ],
 
   // Social media

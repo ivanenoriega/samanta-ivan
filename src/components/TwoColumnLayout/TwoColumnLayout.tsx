@@ -211,7 +211,6 @@ export default function TwoColumnLayout() {
         <InfoSection data={weddingData} />
         <GiftsSection data={weddingData} />
         <HashtagSection data={weddingData} />
-        <FooterSection data={weddingData} />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ interface TimerSectionProps {
 
 export default function TimerSection({ data }: TimerSectionProps) {
   return (
-    <Section background="white" className={styles.timerSection}>
+    <Section className={styles.timerSection}>
       <div className={styles.timerContainer}>
         <div className={styles.timerCircle}>
           <CountdownTimer data={data} />

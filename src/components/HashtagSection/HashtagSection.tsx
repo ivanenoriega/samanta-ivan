@@ -11,7 +11,7 @@ interface HashtagSectionProps {
 
 export default function HashtagSection({ data }: HashtagSectionProps) {
   return (
-    <Section background="olive" className={styles.hashtagSection}>
+    <Section className={styles.hashtagSection}>
       <div className={styles.hashtagContainer}>
         <SectionHeading>Compartimos este día junto a vos</SectionHeading>
         <p className={styles.sectionSubtitle}>

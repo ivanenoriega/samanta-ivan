@@ -22,13 +22,7 @@
 
 .sectionContent {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: $spacing-xl $spacing-lg;
-  
-  @include mobile {
-    padding: $spacing-lg $spacing-md;
-  }
 }
 
 
@@ -40,15 +34,5 @@
       min-height: 100vh;
       padding: $spacing-md 0;
     }
-  }
-  
-  .sectionContent {
-    padding: $spacing-lg $spacing-md;
-  }
-}
-
-@include tablet {
-  .sectionContent {
-    padding: $spacing-xl $spacing-lg;
   }
 }

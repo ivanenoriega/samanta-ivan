@@ -10,12 +10,7 @@ interface FooterSectionProps {
 
 export default function FooterSection({ data }: FooterSectionProps) {
   return (
-    <Section
-      background="brown"
-      className={styles.footerSection}
-      fullHeight={false}
-      as="footer"
-    >
+    <Section className={styles.footerSection} fullHeight={false} as="footer">
       <div className={styles.footerContainer}>
         <div className={styles.footerContent}>
           <div className={styles.footerLeft}>
