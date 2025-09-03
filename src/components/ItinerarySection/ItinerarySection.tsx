@@ -3,6 +3,7 @@
 import { WeddingData } from "@/data/weddingData";
 import styles from "./ItinerarySection.module.scss";
 import { SectionHeading } from "../SectionHeading";
+import Section from "../Section";
 
 interface ItinerarySectionProps {
   data: WeddingData;
@@ -109,7 +110,7 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
   ];
 
   return (
-    <section className={styles.itinerarySection}>
+    <Section className={styles.itinerarySection}>
       <div className={styles.itineraryContainer}>
         <SectionHeading>Itinerario</SectionHeading>
 
@@ -136,6 +137,6 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

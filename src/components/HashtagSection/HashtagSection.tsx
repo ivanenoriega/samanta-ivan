@@ -3,6 +3,7 @@
 import { WeddingData } from "@/data/weddingData";
 import styles from "./HashtagSection.module.scss";
 import { SectionHeading } from "../SectionHeading";
+import Section from "../Section";
 
 interface HashtagSectionProps {
   data: WeddingData;
@@ -10,7 +11,7 @@ interface HashtagSectionProps {
 
 export default function HashtagSection({ data }: HashtagSectionProps) {
   return (
-    <section className={styles.hashtagSection}>
+    <Section background="olive" className={styles.hashtagSection}>
       <div className={styles.hashtagContainer}>
         <SectionHeading>Compartimos este día junto a vos</SectionHeading>
         <p className={styles.sectionSubtitle}>
@@ -30,6 +31,6 @@ export default function HashtagSection({ data }: HashtagSectionProps) {
           </a>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

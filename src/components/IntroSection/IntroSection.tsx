@@ -4,6 +4,7 @@ import Image from "next/image";
 import { WeddingData } from "@/data/weddingData";
 import CountdownTimer from "../TimerSection/CountdownTimer";
 import styles from "./IntroSection.module.scss";
+import Section from "../Section";
 
 interface IntroSectionProps {
   data: WeddingData;
@@ -11,7 +12,7 @@ interface IntroSectionProps {
 
 export default function IntroSection({ data }: IntroSectionProps) {
   return (
-    <section className={styles.introSection}>
+    <Section className={styles.introSection}>
       <div className={styles.introContainer}>
         <div className={styles.logoContainer}>
           <Image
@@ -25,6 +26,6 @@ export default function IntroSection({ data }: IntroSectionProps) {
           <CountdownTimer data={data} />
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

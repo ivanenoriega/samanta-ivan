@@ -3,6 +3,7 @@
 import { WeddingData } from "@/data/weddingData";
 import CountdownTimer from "./CountdownTimer";
 import styles from "./TimerSection.module.scss";
+import Section from "../Section";
 
 interface TimerSectionProps {
   data: WeddingData;
@@ -10,12 +11,12 @@ interface TimerSectionProps {
 
 export default function TimerSection({ data }: TimerSectionProps) {
   return (
-    <section className={styles.timerSection}>
+    <Section background="white" className={styles.timerSection}>
       <div className={styles.timerContainer}>
         <div className={styles.timerCircle}>
           <CountdownTimer data={data} />
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

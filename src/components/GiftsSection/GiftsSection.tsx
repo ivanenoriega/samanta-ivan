@@ -4,6 +4,7 @@ import { useState } from "react";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./GiftsSection.module.scss";
 import { SectionHeading } from "../SectionHeading";
+import Section from "../Section";
 
 interface GiftsSectionProps {
   data: WeddingData;
@@ -40,7 +41,7 @@ export default function GiftsSection({ data }: GiftsSectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className={styles.giftsSection}>
+    <Section className={styles.giftsSection}>
       <div className={styles.giftsContainer}>
         <SectionHeading>Regalos</SectionHeading>
         <p className={styles.sectionSubtitle}>
@@ -64,6 +65,6 @@ export default function GiftsSection({ data }: GiftsSectionProps) {
         title="Información sobre Regalos"
         content={data.giftInfo}
       />
-    </section>
+    </Section>
   );
 }

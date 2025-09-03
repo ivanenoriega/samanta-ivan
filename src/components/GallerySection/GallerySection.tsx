@@ -5,6 +5,7 @@ import Image from "next/image";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./GallerySection.module.scss";
 import { SectionHeading } from "../SectionHeading";
+import Section from "../Section";
 
 interface GallerySectionProps {
   data: WeddingData;
@@ -24,7 +25,7 @@ export default function GallerySection({ data }: GallerySectionProps) {
   };
 
   return (
-    <section className={styles.gallerySection}>
+    <Section className={styles.gallerySection}>
       <div className={styles.galleryContainer}>
         <div className={styles.galleryHeader}>
           <SectionHeading>Retratos de Nuestro Amor</SectionHeading>
@@ -86,6 +87,6 @@ export default function GallerySection({ data }: GallerySectionProps) {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { WeddingData } from "@/data/weddingData";
 import styles from "./FooterSection.module.scss";
+import Section from "../Section";
 
 interface FooterSectionProps {
   data: WeddingData;
@@ -9,7 +10,12 @@ interface FooterSectionProps {
 
 export default function FooterSection({ data }: FooterSectionProps) {
   return (
-    <footer className={styles.footerSection}>
+    <Section
+      background="brown"
+      className={styles.footerSection}
+      fullHeight={false}
+      as="footer"
+    >
       <div className={styles.footerContainer}>
         <div className={styles.footerContent}>
           <div className={styles.footerLeft}>
@@ -65,6 +71,6 @@ export default function FooterSection({ data }: FooterSectionProps) {
           </div>
         </div>
       </div>
-    </footer>
+    </Section>
   );
 }
