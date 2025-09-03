@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./InfoSection.module.scss";
+import { SectionHeading } from "../SectionHeading";
 
 interface InfoSectionProps {
   data: WeddingData;
@@ -52,7 +53,7 @@ export default function InfoSection({ data }: InfoSectionProps) {
   return (
     <section className={styles.infoSection}>
       <div className={styles.infoContainer}>
-        <h2 className={styles.sectionTitle}>Fiesta</h2>
+        <SectionHeading>Fiesta</SectionHeading>
         <p className={styles.sectionSubtitle}>
           Hagamos juntos una fiesta épica. Aquí algunos detalles a tener en
           cuenta.

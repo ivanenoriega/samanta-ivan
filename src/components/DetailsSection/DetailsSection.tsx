@@ -2,6 +2,7 @@
 
 import { WeddingData } from "@/data/weddingData";
 import styles from "./DetailsSection.module.scss";
+import { SectionHeading } from "../SectionHeading";
 
 interface DetailsSectionProps {
   data: WeddingData;
@@ -11,7 +12,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
   return (
     <section className={styles.detailsSection}>
       <div className={styles.detailsContainer}>
-        <h2 className={styles.sectionTitle}>Detalles del Evento</h2>
+        <SectionHeading>Detalles del Evento</SectionHeading>
 
         <div className={styles.eventDetails}>
           <div className={styles.detailItem}>

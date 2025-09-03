@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./GiftsSection.module.scss";
+import { SectionHeading } from "../SectionHeading";
 
 interface GiftsSectionProps {
   data: WeddingData;
@@ -41,7 +42,7 @@ export default function GiftsSection({ data }: GiftsSectionProps) {
   return (
     <section className={styles.giftsSection}>
       <div className={styles.giftsContainer}>
-        <h2 className={styles.sectionTitle}>Regalos</h2>
+        <SectionHeading>Regalos</SectionHeading>
         <p className={styles.sectionSubtitle}>
           Si deseas regalarnos algo más que tu hermosa presencia...
         </p>

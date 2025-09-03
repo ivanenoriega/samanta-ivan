@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./GallerySection.module.scss";
+import { SectionHeading } from "../SectionHeading";
 
 interface GallerySectionProps {
   data: WeddingData;
@@ -26,7 +27,7 @@ export default function GallerySection({ data }: GallerySectionProps) {
     <section className={styles.gallerySection}>
       <div className={styles.galleryContainer}>
         <div className={styles.galleryHeader}>
-          <h2 className={styles.sectionTitle}>Retratos de Nuestro Amor</h2>
+          <SectionHeading>Retratos de Nuestro Amor</SectionHeading>
           <p className={styles.sectionSubtitle}>
             Un minuto, un segundo, un instante que queda en la eternidad
           </p>

@@ -11,11 +11,7 @@
   text-align: center;
 }
 
-.sectionTitle {
-  @include heading-primary;
-  font-size: 2.5rem;
-  margin-bottom: $spacing-sm;
-}
+
 
 .sectionSubtitle {
   font-size: 1.1rem;
@@ -108,9 +104,7 @@
 }
 
 @include mobile {
-  .sectionTitle {
-    font-size: 2rem;
-  }
+
 
   .giftIcon {
     font-size: 3rem;

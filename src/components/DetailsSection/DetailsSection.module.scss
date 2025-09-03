@@ -10,12 +10,7 @@
   margin: 0 auto;
 }
 
-.sectionTitle {
-  text-align: center;
-  @include heading-primary;
-  font-size: 2.5rem;
-  margin-bottom: $spacing-xl;
-}
+
 
 .eventDetails {
   @include flex-column;
@@ -71,7 +66,5 @@
     gap: $spacing-sm;
   }
 
-  .sectionTitle {
-    font-size: 2rem;
-  }
+
 }

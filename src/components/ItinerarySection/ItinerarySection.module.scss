@@ -1,0 +1,173 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.itinerarySection {
+  @include section-padding;
+  background: $chalk-white;
+}
+
+.itineraryContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+.timelineContainer {
+  position: relative;
+  padding: $spacing-lg 0;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $linen-beige;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+  width: 100%;
+  z-index: 2;
+  
+  &.left {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-right: 50%;
+    
+    .eventContent {
+      flex-direction: row;
+      margin-right: $spacing-lg;
+    }
+  }
+  
+  &.right {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    padding-left: 50%;
+    
+    .eventContent {
+      flex-direction: row-reverse;
+      margin-left: $spacing-lg;
+    }
+  }
+}
+
+.timelineMarker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.markerCircle {
+  width: 16px;
+  height: 16px;
+  background: $wood-brown;
+  border: 3px solid $chalk-white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px $shadow-medium;
+}
+
+.eventContent {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  background: $surface;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  box-shadow: 0 4px 12px $shadow-light;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px $shadow-medium;
+  }
+}
+
+.eventIcon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-xs;
+}
+
+.eventTime {
+  font-family: $font-inter;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: $wood-brown;
+  letter-spacing: 0.02em;
+}
+
+.eventName {
+  font-family: $font-playfair;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: $forest-green;
+  letter-spacing: 0.01em;
+}
+
+@include mobile {
+  .timeline {
+    &::before {
+      left: 30px;
+    }
+  }
+  
+  .timelineItem {
+    &.left,
+    &.right {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-left: 60px;
+      padding-right: 0;
+      
+      .eventContent {
+        flex-direction: row;
+        margin-left: $spacing-md;
+        margin-right: 0;
+      }
+    }
+  }
+  
+  .timelineMarker {
+    left: 30px;
+    transform: none;
+  }
+  
+
+  
+  .eventContent {
+    padding: $spacing-sm $spacing-md;
+  }
+  
+  .eventTime {
+    font-size: 1rem;
+  }
+  
+  .eventName {
+    font-size: 1.1rem;
+  }
+}

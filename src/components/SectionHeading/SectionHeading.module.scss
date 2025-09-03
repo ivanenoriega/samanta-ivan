@@ -1,0 +1,11 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sectionTitle {
+  @include heading-primary;
+  font-size: 2.5rem;
+  margin-bottom: $spacing-xl;
+  color: $wood-brown;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}

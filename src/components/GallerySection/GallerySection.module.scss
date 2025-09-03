@@ -14,11 +14,7 @@
   margin-bottom: $spacing-xl;
 }
 
-.sectionTitle {
-  @include heading-primary;
-  font-size: 2.5rem;
-  margin-bottom: $spacing-sm;
-}
+
 
 .sectionSubtitle {
   font-size: 1.1rem;
@@ -113,9 +109,7 @@
     height: 300px;
   }
 
-  .sectionTitle {
-    font-size: 2rem;
-  }
+
 
   .carouselButton {
     width: 40px;
