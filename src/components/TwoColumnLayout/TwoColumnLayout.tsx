@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from "react";
 import { weddingData } from "@/data/weddingData";
 import IntroSection from "@/components/IntroSection";
-import TimerSection from "@/components/TimerSection";
 import DetailsSection from "@/components/DetailsSection";
 import ItinerarySection from "@/components/ItinerarySection";
 import GallerySection from "@/components/GallerySection";
@@ -11,7 +10,6 @@ import InfoSection from "@/components/InfoSection";
 import GiftsSection from "@/components/GiftsSection";
 import HashtagSection from "@/components/HashtagSection";
 import ConfirmationSection from "@/components/ConfirmationSection";
-import FooterSection from "@/components/FooterSection";
 import styles from "./TwoColumnLayout.module.scss";
 
 // Local background images for different sections
@@ -215,7 +213,6 @@ export default function TwoColumnLayout() {
         <GiftsSection data={weddingData} />
         <HashtagSection data={weddingData} />
         <ConfirmationSection data={weddingData} />
-        <FooterSection data={weddingData} />
       </div>
     </div>
   );

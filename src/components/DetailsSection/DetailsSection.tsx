@@ -55,22 +55,6 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
               <p>{data.eventAddress}</p>
             </div>
           </div>
-
-          <div className={styles.detailItem}>
-            <div className={styles.detailIcon}>✅</div>
-            <div className={styles.detailContent}>
-              <h3>Confirmar Asistencia</h3>
-              <p>Por favor confirma tu asistencia</p>
-              <a
-                href={data.attendanceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.actionButton} ${styles.primary}`}
-              >
-                Confirmar Asistencia
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </Section>
