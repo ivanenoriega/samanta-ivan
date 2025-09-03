@@ -62,16 +62,6 @@ export default function InfoSection({ data }: InfoSectionProps) {
 
         <div className={styles.infoCards}>
           <div className={styles.infoCard}>
-            <div className={styles.cardIcon}>🎵</div>
-            <h3>MÚSICA</h3>
-            <p>
-              ¿Cuál es la canción que no debe faltar en la Playlist de la
-              fiesta?
-            </p>
-            <button className={styles.cardButton}>Sugerir canción</button>
-          </div>
-
-          <div className={styles.infoCard}>
             <div className={styles.cardIcon}>👔</div>
             <h3>DRESS CODE</h3>
             <p>Una orientación para tu vestimenta</p>
