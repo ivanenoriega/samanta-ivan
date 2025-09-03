@@ -65,7 +65,8 @@ export const weddingData: WeddingData = {
 
   // Social media
   hashtag: "#samantaeivan",
-  instagramUrl: "https://www.instagram.com/elquincho.multiespacio/",
+  instagramUrl:
+    "https://www.instagram.com/explore/search/keyword/?q=%23samantaeivan",
 
   // Contact and actions
   calendarUrl: "https://calendar.google.com/event?action=TEMPLATE&tmeid=...",
