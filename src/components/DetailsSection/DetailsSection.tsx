@@ -30,7 +30,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
 
         <div className={styles.importantDataList}>
           <ImportantData
-            icon="👗"
+            icon="dress-code.png"
             title="Dress code: Cóctel"
             description="Les pedimos con cariño reservar el blanco y los tonos claros para los novios. Para inspirarse con ideas de vestimenta, les compartimos este link."
             action={{
@@ -42,7 +42,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
           />
 
           <ImportantData
-            icon="🎁"
+            icon="gift-card.png"
             title="Regalos"
             description="Si deseas regalarnos algo más que tu hermosa presencia, puedes hacerlo a través de transferencia bancaria o en efectivo el día del evento. Tu presencia es el mejor regalo."
             action={{
@@ -52,19 +52,19 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
           />
 
           <ImportantData
-            icon="👶"
+            icon="champagne-glass.png"
             title="Evento para adultos"
             description="Con el fin de que todos podamos disfrutar al máximo de la celebración, este evento está diseñado exclusivamente para adultos. Agradecemos tu comprensión y esperamos que puedas organizarte para asistir sin niños."
           />
 
           <ImportantData
-            icon="🎫"
+            icon="love-letter.png"
             title="Invitaciones individuales"
             description="Las invitaciones del evento son individuales, por lo que cada invitación cuenta para una sola persona. Si tienes acompañante, por favor asegúrate de que también tenga su propia invitación."
           />
 
           <ImportantData
-            icon="📸"
+            icon="photos.png"
             title="Recuerdos"
             description="¡Queremos ver todas las fotos y videos de nuestra celebración! Pueden subir sus fotos con el hashtag #samantaeivan en Instagram para que todos podamos revivir los mejores momentos del evento."
             action={{
@@ -76,7 +76,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
           />
 
           <ImportantData
-            icon="✅"
+            icon="checked.png"
             title="Confirmar asistencia"
             description="Es muy importante que confirmes tu asistencia al evento. Más abajo encontrarás el formulario para confirmar tu presencia. Tu respuesta nos ayuda a organizar mejor la celebración y asegurar que todo esté perfecto para recibirte."
             action={{

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 import styles from "./ImportantData.module.scss";
 import { SectionHeading } from "../SectionHeading";
 
@@ -36,13 +37,25 @@ export default function ImportantData({
     <div className={styles.importantDataItem}>
       <div className={styles.dropdownHeader} onClick={toggleDropdown}>
         <div className={styles.headerContent}>
-          <div className={styles.dataIcon}>{icon}</div>
+          <div className={styles.dataIcon}>
+            <Image
+              src={`/images/icons/${icon}`}
+              alt={title}
+              width={32}
+              height={32}
+            />
+          </div>
           <SectionHeading variant="h3">{title}</SectionHeading>
         </div>
         <div
           className={`${styles.arrowIcon} ${isOpen ? styles.arrowOpen : ""}`}
         >
-          ▼
+          <Image
+            src="/images/icons/arrow-down-sign-to-navigate.png"
+            alt="Toggle dropdown"
+            width={20}
+            height={20}
+          />
         </div>
       </div>
       <AnimatePresence>

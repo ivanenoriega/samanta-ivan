@@ -15,8 +15,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/mem0ijn.css" />
+        <link rel="preconnect" href="https://use.typekit.net" />
       </head>
-      <body className="tk-raleway tk-playfair-display">{children}</body>
+      <body className="tk-raleway">{children}</body>
     </html>
   );
 }
