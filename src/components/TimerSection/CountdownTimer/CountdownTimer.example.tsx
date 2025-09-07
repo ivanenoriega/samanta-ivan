@@ -22,6 +22,12 @@ export function CountdownTimerExamples() {
     giftInfo: "Sample gift info",
     dressCodeInfo: "Sample dress code info",
     tipsInfo: "Sample tips info",
+    bankingInfo: {
+      bankName: "Rebanking",
+      accountHolder: "Ivan Emiliano Noriega",
+      cbu: "4150999718003595680027",
+      alias: "samantaeivan",
+    },
     developerInfo: "Desarrollado con ❤️ por samanta-ivan",
   };
 

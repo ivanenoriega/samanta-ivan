@@ -1,5 +1,6 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
+@use 'sass:color';
 
 .bankingInfo {
 }
@@ -57,7 +58,7 @@
   justify-content: center;
 
   &:hover {
-    background: darken($wood-brown, 10%);
+    background: color.adjust($wood-brown, $lightness: -10%);
     transform: translateY(-1px);
   }
 
@@ -72,7 +73,7 @@
 }
 
 .note {
-  background: lighten($linen-beige, 5%);
+  background: color.adjust($linen-beige, $lightness: 5%);
   border-left: 4px solid $wood-brown;
   padding: $spacing-md;
   border-radius: $border-radius-sm;
