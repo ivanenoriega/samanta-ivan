@@ -1,3 +1,10 @@
+export interface BankingInfo {
+  bankName: string;
+  accountHolder: string;
+  cbu: string;
+  alias: string;
+}
+
 export interface WeddingData {
   // Couple information
   coupleNames: string;
@@ -23,6 +30,9 @@ export interface WeddingData {
   giftInfo: string;
   dressCodeInfo: string;
   tipsInfo: string;
+
+  // Banking information
+  bankingInfo: BankingInfo;
 
   // Developer info
   developerInfo: string;
@@ -78,6 +88,14 @@ export const weddingData: WeddingData = {
     "Dress Code: Elegante Sport. Colores sugeridos: tonos pasteles y colores neutros. Evitar blanco y negro.",
   tipsInfo:
     "• Llegar 15 minutos antes del horario indicado\n• No olvides confirmar tu asistencia\n• Comparte tus fotos con el hashtag #samantaeivan\n• Estacionamiento disponible en el lugar",
+
+  // Banking information
+  bankingInfo: {
+    bankName: "Rebanking",
+    accountHolder: "Ivan Emiliano Noriega",
+    cbu: "4150999718003595680027",
+    alias: "samantaeivan",
+  },
 
   // Developer info
   developerInfo: "Desarrollado con ❤️ por samanta-ivan",

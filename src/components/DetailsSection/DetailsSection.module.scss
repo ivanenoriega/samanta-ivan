@@ -13,59 +13,7 @@
 
 
 
-.eventDetails {
+.importantDataList {
   @include flex-column;
-  gap: $spacing-lg;
 }
 
-.detailItem {
-  @include flex-between;
-  align-items: flex-start;
-  gap: $spacing-md;
-  padding: $spacing-lg;
-  @include card;
-  border-left: 4px solid $wood-brown;
-}
-
-.detailIcon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.detailContent {
-  flex: 1;
-}
-
-.detailContent h3 {
-  @include heading-primary;
-  font-size: 1.3rem;
-  margin-bottom: $spacing-xs;
-}
-
-.detailContent p {
-  color: $smoke-gray;
-  margin-bottom: $spacing-sm;
-  line-height: 1.6;
-}
-
-.actionButton {
-  @include button-base;
-}
-
-.actionButton.primary {
-  @include button-primary;
-}
-
-.actionButton.secondary {
-  @include button-secondary;
-}
-
-@include mobile {
-  .detailItem {
-    flex-direction: column;
-    text-align: center;
-    gap: $spacing-sm;
-  }
-
-
-}

@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "../styles/globals.scss";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Samanta & Ivan - Wedding Invitation",
@@ -17,14 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="stylesheet" href="https://use.typekit.net/mem0ijn.css" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="tk-raleway tk-playfair-display">{children}</body>
     </html>
   );
 }

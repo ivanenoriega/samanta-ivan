@@ -1,0 +1,97 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.bankingInfo {
+}
+
+.bankingDetails {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.bankingItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-weight: 600;
+  color: $wood-brown;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  color: $text;
+  font-size: 1.1rem;
+  font-family: $font-raleway;
+  background: $linen-beige;
+  padding: $spacing-sm;
+  border-radius: $border-radius-sm;
+  border: 1px solid $wood-brown;
+}
+
+.valueContainer {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.copyButton {
+  background: $wood-brown;
+  color: $surface;
+  border: none;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs $spacing-sm;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: darken($wood-brown, 10%);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: 2px solid $wood-brown;
+    outline-offset: 2px;
+  }
+}
+
+.note {
+  background: lighten($linen-beige, 5%);
+  border-left: 4px solid $wood-brown;
+  padding: $spacing-md;
+  border-radius: $border-radius-sm;
+  
+  p {
+    margin: 0;
+    color: $smoke-gray;
+    line-height: 1.5;
+  }
+}
+
+@include mobile {
+  .valueContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-xs;
+  }
+
+  .copyButton {
+    align-self: flex-start;
+  }
+}

@@ -6,9 +6,6 @@ import IntroSection from "@/components/IntroSection";
 import DetailsSection from "@/components/DetailsSection";
 import ItinerarySection from "@/components/ItinerarySection";
 import GallerySection from "@/components/GallerySection";
-import InfoSection from "@/components/InfoSection";
-import GiftsSection from "@/components/GiftsSection";
-import HashtagSection from "@/components/HashtagSection";
 import ConfirmationSection from "@/components/ConfirmationSection";
 import styles from "./TwoColumnLayout.module.scss";
 
@@ -209,9 +206,6 @@ export default function TwoColumnLayout() {
         <ItinerarySection data={weddingData} />
         <DetailsSection data={weddingData} />
         <GallerySection data={weddingData} />
-        <InfoSection data={weddingData} />
-        <GiftsSection data={weddingData} />
-        <HashtagSection data={weddingData} />
         <ConfirmationSection data={weddingData} />
       </div>
     </div>

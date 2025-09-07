@@ -5,7 +5,9 @@
   @include heading-primary;
   font-size: 2.5rem;
   margin-bottom: $spacing-xl;
-  color: $wood-brown;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+}
+
+.sectionTitleH3 {
+  @include heading-secondary;
+  font-size: 1.5rem;
 }
