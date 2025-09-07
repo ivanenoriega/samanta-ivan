@@ -28,12 +28,20 @@
   &:hover {
     background-color: rgba($wood-brown, 0.05);
   }
+
+  @include mobile {
+    padding: $spacing-sm;
+  }
 }
 
 .headerContent {
   display: flex;
   gap: $spacing-md;
   flex: 1;
+
+  @include mobile {
+    gap: $spacing-sm;
+  }
 }
 
 .dataIcon {

@@ -19,44 +19,7 @@
     flex-wrap: wrap;
     margin-bottom: 2rem;
   }
-  
-  .button {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 200px;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    &:active {
-      transform: translateY(0);
-    }
-  }
-  
-  .confirmButton {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    
-    &:hover {
-      background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-    }
-  }
-  
-  .declineButton {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
-    
-    &:hover {
-      background: linear-gradient(135deg, #e085e7 0%, #e54d62 100%);
-    }
-  }
+
   
   .message {
     padding: 1.5rem;
@@ -149,23 +112,22 @@
 }
 
 .closeButton {
-  background: none;
-  border: none;
+  background: none !important;
+  border: none !important;
   font-size: 2rem;
-  cursor: pointer;
-  color: #999;
-  padding: 0;
+  color: #999 !important;
+  padding: 0 !important;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: all 0.2s ease;
+  min-width: auto !important;
   
   &:hover {
-    background: #f5f5f5;
-    color: #666;
+    background: #f5f5f5 !important;
+    color: #666 !important;
   }
 }
 
@@ -216,15 +178,11 @@
 }
 
 .cancelButton {
-  padding: 0.75rem 1.5rem;
+  // Custom styling for cancel button in modal
   border: 2px solid #e1e5e9;
   background: white;
   color: #666;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
   
   &:hover {
     border-color: #999;
@@ -234,15 +192,11 @@
 }
 
 .submitButton {
-  padding: 0.75rem 1.5rem;
-  border: none;
+  // Custom styling for submit button in modal
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  border: none;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
   
   &:hover:not(:disabled) {
     background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);

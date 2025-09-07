@@ -1,0 +1,101 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+  @include button-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+
+  // Remove default button styles
+  background: none;
+  border: none;
+  outline: none;
+  
+  // Focus styles for accessibility
+  &:focus-visible {
+    outline: 2px solid $wood-brown;
+    outline-offset: 2px;
+  }
+
+  // Disabled state
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Variants
+.primary {
+  background: $wood-brown;
+  color: $chalk-white;
+
+  &:hover:not(.disabled) {
+    background: $forest-green;
+    transform: translateY(-2px);
+  }
+
+  &:active:not(.disabled) {
+    transform: translateY(0);
+  }
+}
+
+.secondary {
+  background: transparent;
+  color: $wood-brown;
+  border: 2px solid $wood-brown;
+
+  &:hover:not(.disabled) {
+    background: $wood-brown;
+    color: $chalk-white;
+    transform: translateY(-2px);
+  }
+
+  &:active:not(.disabled) {
+    transform: translateY(0);
+  }
+}
+
+
+// Sizes
+.small {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  border-radius: $border-radius-lg;
+}
+
+.medium {
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  border-radius: $border-radius-xl;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: $border-radius-xl;
+}
+
+// Responsive adjustments
+@include mobile {
+  .small {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .medium {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.85rem;
+  }
+
+  .large {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+}

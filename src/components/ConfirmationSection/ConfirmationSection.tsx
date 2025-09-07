@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Section from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Button } from "@/components/Button";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./ConfirmationSection.module.scss";
 
@@ -128,18 +129,22 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
         </p>
 
         <div className={styles.buttonContainer}>
-          <button
-            className={`${styles.button} ${styles.confirmButton}`}
+          <Button
             onClick={() => setIsModalOpen(true)}
+            variant="primary"
+            size="large"
+            className={styles.confirmButton}
           >
             Confirmar Asistencia
-          </button>
-          <button
-            className={`${styles.button} ${styles.declineButton}`}
+          </Button>
+          <Button
             onClick={handleDecline}
+            variant="secondary"
+            size="large"
+            className={styles.declineButton}
           >
             No Puedo Asistir
-          </button>
+          </Button>
         </div>
 
         {submitMessage && (
@@ -162,12 +167,14 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3>Confirmar Asistencia</h3>
-              <button
-                className={styles.closeButton}
+              <Button
                 onClick={() => setIsModalOpen(false)}
+                variant="secondary"
+                size="small"
+                className={styles.closeButton}
               >
                 ×
-              </button>
+              </Button>
             </div>
 
             <form onSubmit={handleSubmit} className={styles.form}>
@@ -219,20 +226,24 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
               </div>
 
               <div className={styles.formActions}>
-                <button
+                <Button
                   type="button"
-                  className={styles.cancelButton}
                   onClick={() => setIsModalOpen(false)}
+                  variant="secondary"
+                  size="medium"
+                  className={styles.cancelButton}
                 >
                   Cancelar
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
-                  className={styles.submitButton}
                   disabled={isSubmitting}
+                  variant="primary"
+                  size="medium"
+                  className={styles.submitButton}
                 >
                   {isSubmitting ? "Enviando..." : "Confirmar"}
-                </button>
+                </Button>
               </div>
             </form>
           </div>

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import styles from "./ImportantData.module.scss";
 import { SectionHeading } from "../SectionHeading";
+import { Button } from "../Button";
 
 interface ActionItem {
   text: string;
@@ -91,23 +92,16 @@ export default function ImportantData({
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ delay: 0.15, duration: 0.2 }}
                 >
-                  {action.onClick ? (
-                    <button
-                      onClick={action.onClick}
-                      className={styles.actionButton}
-                    >
-                      {action.text}
-                    </button>
-                  ) : (
-                    <a
-                      href={action.href}
-                      target={action.target || "_blank"}
-                      rel={action.rel || "noopener noreferrer"}
-                      className={styles.actionButton}
-                    >
-                      {action.text}
-                    </a>
-                  )}
+                  <Button
+                    onClick={action.onClick}
+                    href={action.href}
+                    target={action.target}
+                    rel={action.rel}
+                    variant="primary"
+                    size="medium"
+                  >
+                    {action.text}
+                  </Button>
                 </motion.div>
               )}
             </div>
