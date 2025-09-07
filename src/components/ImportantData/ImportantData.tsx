@@ -20,6 +20,7 @@ interface ImportantDataProps {
   title: string;
   description: string;
   action?: ActionItem;
+  hideBorderBottom?: boolean;
 }
 
 export default function ImportantData({
@@ -27,6 +28,7 @@ export default function ImportantData({
   title,
   description,
   action,
+  hideBorderBottom = false,
 }: ImportantDataProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,7 +37,11 @@ export default function ImportantData({
   };
 
   return (
-    <div className={styles.importantDataItem}>
+    <div
+      className={`${styles.importantDataItem} ${
+        hideBorderBottom ? styles.noBorderBottom : ""
+      }`}
+    >
       <div className={styles.dropdownHeader} onClick={toggleDropdown}>
         <div className={styles.headerContent}>
           <div className={styles.dataIcon}>
@@ -87,6 +93,7 @@ export default function ImportantData({
               </motion.p>
               {action && (
                 <motion.div
+                  className={styles.buttonContainer}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}

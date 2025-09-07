@@ -64,7 +64,6 @@ export default function GallerySection({ data }: GallerySectionProps) {
             <p className={styles.sectionSubtitle}>
               Un minuto, un segundo, un instante que queda en la eternidad
             </p>
-            <div className={styles.cameraIcon}>📷</div>
           </div>
 
           <div className={styles.galleryCarousel}>

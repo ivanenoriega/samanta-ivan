@@ -4,6 +4,7 @@
 .importantDataItem {
   background: $surface;
   text-align: left;
+  border-bottom: 2px solid rgba($wood-brown, 0.1);
   
   &:first-child {
     border-radius: $border-radius-md $border-radius-md 0 0;
@@ -11,10 +12,15 @@
   
   &:last-child {
     border-radius: 0 0 $border-radius-md $border-radius-md;
+    border-bottom: none;
   }
   
   &:not(:first-child):not(:last-child) {
     border-radius: 0;
+  }
+  
+  &.noBorderBottom {
+    border-bottom: none;
   }
 }
 
@@ -100,6 +106,12 @@
 .actionButton {
   @include button-base;
   @include button-primary;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-sm;
 }
 
 @keyframes slideDown {
