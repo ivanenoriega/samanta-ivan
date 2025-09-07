@@ -2,7 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .itinerarySection {
-  @include section-padding;
   background: $chalk-white;
 }
 
@@ -155,12 +154,6 @@
   .timelineMarker {
     left: 22px;
     transform: none;
-  }
-  
-
-  
-  .eventContent {
-    padding: $spacing-sm $spacing-md;
   }
   
   .eventTime {
