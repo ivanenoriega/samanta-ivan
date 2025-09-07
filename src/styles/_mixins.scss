@@ -106,9 +106,12 @@
 @mixin container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $spacing-lg;
 }
 
 @mixin section-padding {
   padding: $spacing-sm $spacing-lg;
+
+  @media (max-width: $mobile) {
+    padding: $spacing-sm $spacing-sm;
+  }
 }

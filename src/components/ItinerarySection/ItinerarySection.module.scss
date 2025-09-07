@@ -16,7 +16,6 @@
 
 .timelineContainer {
   position: relative;
-  padding: $spacing-lg 0;
 }
 
 .timeline {
@@ -90,7 +89,7 @@
   align-items: center;
   gap: $spacing-md;
   background: $surface;
-  padding: $spacing-md $spacing-lg;
+  padding: $spacing-md;
   border-radius: $border-radius-md;
   box-shadow: 0 4px 12px $shadow-light;
   transition: transform $transition-normal, box-shadow $transition-normal;
@@ -127,6 +126,7 @@
   font-weight: 500;
   color: $forest-green;
   letter-spacing: 0.01em;
+  text-align: left;
 }
 
 @include mobile {

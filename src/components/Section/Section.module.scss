@@ -2,6 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .section {
+  @include section-padding;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -14,7 +15,6 @@
   
   // When not full height, still maintain good spacing
   &:not(.fullHeight) {
-    padding: $spacing-xl 0;
     display: flex;
     align-items: center;
   }
@@ -32,7 +32,7 @@
   .section {
     &.fullHeight {
       min-height: 100vh;
-      padding: $spacing-md 0;
     }
   }
 }
+

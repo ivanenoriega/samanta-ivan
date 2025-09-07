@@ -9,7 +9,6 @@
 
 .introContainer {
   @include flex-center;
-  @include container;
   min-height: 100vh;
   width: 100%;
 }

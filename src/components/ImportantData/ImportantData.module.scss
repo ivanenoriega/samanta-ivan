@@ -3,7 +3,6 @@
 
 .importantDataItem {
   background: $surface;
-  border-left: 4px solid $wood-brown;
   text-align: left;
   
   &:first-child {
@@ -16,10 +15,6 @@
   
   &:not(:first-child):not(:last-child) {
     border-radius: 0;
-  }
-  
-  &:not(:last-child) {
-    border-bottom: 1px solid $linen-beige;
   }
 }
 
