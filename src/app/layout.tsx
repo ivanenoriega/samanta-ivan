@@ -4,6 +4,11 @@ import "../styles/globals.scss";
 export const metadata: Metadata = {
   title: "Samanta & Ivan - Invitación de Boda",
   description: "Acompáñanos en nuestro día especial",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: "Samanta & Ivan - Invitación de Boda",
     description: "Acompáñanos en nuestro día especial",
