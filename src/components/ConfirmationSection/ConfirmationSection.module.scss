@@ -1,10 +1,14 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .confirmationSection {
   text-align: center;
   padding: 2rem 0;
   
   .description {
+    font-family: $font-raleway;
     font-size: 1.1rem;
-    color: #666;
+    color: $smoke-gray;
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -69,6 +73,53 @@
   }
 }
 
+// Full-screen spinner overlay
+.spinnerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.spinnerCircle {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinnerText {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 // Modal styles
 .modalOverlay {
   position: fixed;
@@ -86,14 +137,14 @@
 }
 
 .modal {
-  background: white;
-  border-radius: 16px;
+  background: $chalk-white;
+  border-radius: $border-radius-md;
   padding: 0;
   max-width: 500px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px $shadow-dark;
   animation: slideUp 0.3s ease;
 }
 
@@ -102,33 +153,28 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $linen-beige;
   
   h3 {
     margin: 0;
+    font-family: $font-playfair;
     font-size: 1.5rem;
-    color: #333;
+    color: $wood-brown;
+    font-weight: 500;
   }
 }
 
 .closeButton {
-  background: none !important;
-  border: none !important;
-  font-size: 2rem;
-  color: #999 !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
   padding: 0 !important;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  min-width: auto !important;
-  
-  &:hover {
-    background: #f5f5f5 !important;
-    color: #666 !important;
-  }
+  border-radius: 50% !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .form {
@@ -142,28 +188,33 @@
   label {
     display: block;
     margin-bottom: 0.5rem;
+    font-family: $font-raleway;
     font-weight: 600;
-    color: #333;
+    color: $wood-brown;
     font-size: 0.9rem;
   }
   
   input {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 2px solid #e1e5e9;
-    border-radius: 8px;
+    border: 2px solid $linen-beige;
+    border-radius: $border-radius-sm;
+    font-family: $font-raleway;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    color: $smoke-gray;
+    background: white;
+    transition: border-color $transition-normal, box-shadow $transition-normal;
     box-sizing: border-box;
     
     &:focus {
       outline: none;
-      border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      border-color: $wood-brown;
+      box-shadow: 0 0 0 3px $wood-brown-transparent;
     }
     
     &::placeholder {
-      color: #999;
+      color: $smoke-gray;
+      opacity: 0.6;
     }
   }
 }
@@ -174,40 +225,7 @@
   justify-content: flex-end;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #eee;
-}
-
-.cancelButton {
-  // Custom styling for cancel button in modal
-  border: 2px solid #e1e5e9;
-  background: white;
-  color: #666;
-  border-radius: 8px;
-  
-  &:hover {
-    border-color: #999;
-    color: #333;
-    background: #f9f9f9;
-  }
-}
-
-.submitButton {
-  // Custom styling for submit button in modal
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  
-  &:hover:not(:disabled) {
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-    transform: translateY(-1px);
-  }
-  
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-  }
+  border-top: 1px solid $linen-beige;
 }
 
 // Animations

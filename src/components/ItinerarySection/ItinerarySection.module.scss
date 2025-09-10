@@ -85,22 +85,16 @@
 
 .eventContent {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: $spacing-md;
   background: $surface;
   padding: $spacing-md;
   border-radius: $border-radius-md;
   box-shadow: 0 4px 12px $shadow-light;
-  transition: transform $transition-normal, box-shadow $transition-normal;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px $shadow-medium;
-  }
 }
 
 .eventIcon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   flex-shrink: 0;
 }
 
@@ -113,19 +107,38 @@
 
 .eventTime {
   font-family: $font-raleway;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.3rem;
   color: $wood-brown;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .eventName {
-  font-family: $font-raleway;
+  font-family: "playfair-display", serif;
   font-size: 1.3rem;
   font-weight: 500;
   color: $forest-green;
   letter-spacing: 0.01em;
   text-align: left;
+}
+
+.locationLink {
+  font-family: "playfair-display", serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: $forest-green;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color $transition-normal;
+  
+  &:hover {
+    color: $wood-brown;
+    text-decoration: underline;
+  }
 }
 
 @include mobile {
@@ -157,10 +170,14 @@
   }
   
   .eventTime {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .eventName {
+    font-size: 1.1rem;
+  }
+  
+  .locationLink {
     font-size: 1.1rem;
   }
 }

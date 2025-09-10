@@ -33,6 +33,7 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
   const [messageType, setMessageType] = useState<"success" | "error" | "info">(
     "success"
   );
+  const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -59,6 +60,7 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
       if (response.ok) {
         setMessageType("success");
         setSubmitMessage("¡Gracias por confirmar tu asistencia!");
+        setIsSuccessfullySubmitted(true);
         setFormData({
           nombre: "",
           apellido: "",
@@ -66,10 +68,7 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
           telefono: "",
           asistencia: true,
         });
-        setTimeout(() => {
-          setIsModalOpen(false);
-          setSubmitMessage("");
-        }, 2000);
+        setIsModalOpen(false);
       } else {
         setMessageType("error");
         setSubmitMessage(
@@ -85,6 +84,9 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
   };
 
   const handleDecline = async () => {
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
     try {
       const declineData = {
         nombre: "No confirmado",
@@ -107,15 +109,18 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
         setSubmitMessage(
           "Entendemos que no puedes asistir. ¡Gracias por informarnos!"
         );
-        setTimeout(() => {
-          setSubmitMessage("");
-        }, 3000);
+        setIsSuccessfullySubmitted(true);
+      } else {
+        setMessageType("error");
+        setSubmitMessage(
+          "Hubo un error al enviar la respuesta. Por favor, intenta de nuevo."
+        );
       }
     } catch {
       setMessageType("error");
-      setSubmitMessage(
-        "Error al enviar la respuesta. Por favor, intenta de nuevo."
-      );
+      setSubmitMessage("Error de conexión. Por favor, intenta de nuevo.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -134,16 +139,18 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
             variant="primary"
             size="large"
             className={styles.confirmButton}
+            disabled={isSuccessfullySubmitted}
           >
-            Confirmar Asistencia
+            Confirmar asistencia
           </Button>
           <Button
             onClick={handleDecline}
             variant="secondary"
             size="large"
             className={styles.declineButton}
+            disabled={isSuccessfullySubmitted}
           >
-            No Puedo Asistir
+            No puedo asistir
           </Button>
         </div>
 
@@ -157,6 +164,16 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
           </div>
         )}
       </div>
+
+      {/* Full-screen spinner overlay */}
+      {isSubmitting && (
+        <div className={styles.spinnerOverlay}>
+          <div className={styles.spinner}>
+            <div className={styles.spinnerCircle}></div>
+            <p className={styles.spinnerText}>Enviando confirmación...</p>
+          </div>
+        </div>
+      )}
 
       {/* Modal */}
       {isModalOpen && (
@@ -231,7 +248,6 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
                   onClick={() => setIsModalOpen(false)}
                   variant="secondary"
                   size="medium"
-                  className={styles.cancelButton}
                 >
                   Cancelar
                 </Button>
@@ -240,7 +256,6 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
                   disabled={isSubmitting}
                   variant="primary"
                   size="medium"
-                  className={styles.submitButton}
                 >
                   {isSubmitting ? "Enviando..." : "Confirmar"}
                 </Button>

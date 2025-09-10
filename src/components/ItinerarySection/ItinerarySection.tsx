@@ -15,12 +15,16 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
     {
       time: "12:00 hs",
       event: "Ceremonia civil",
+      location: {
+        text: "Ubicación",
+        url: "https://maps.app.goo.gl/WJnJwoDSsYWNcpsQ8",
+      },
       icon: (
         <Image
           src="/images/icons/marriage-contract.png"
           alt="Ceremonia civil"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
         />
       ),
       position: "left" as const,
@@ -28,12 +32,16 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
     {
       time: "17:00 hs",
       event: "Recepción",
+      location: {
+        text: "Ubicación",
+        url: "https://maps.app.goo.gl/zhzCR5vr27PRZGb17",
+      },
       icon: (
         <Image
           src="/images/icons/placeholder.png"
           alt="Recepción"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
         />
       ),
       position: "right" as const,
@@ -45,8 +53,8 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
         <Image
           src="/images/icons/wedding-couple.png"
           alt="Llegan los novios"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
         />
       ),
       position: "left" as const,
@@ -58,8 +66,8 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
         <Image
           src="/images/icons/wedding-cake.png"
           alt="Brindis y torta"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
         />
       ),
       position: "right" as const,
@@ -71,8 +79,8 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
         <Image
           src="/images/icons/just-married.png"
           alt="Despedida"
-          width={24}
-          height={24}
+          width={32}
+          height={32}
         />
       ),
       position: "left" as const,
@@ -100,6 +108,16 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
                   <div className={styles.eventDetails}>
                     <div className={styles.eventTime}>{event.time}</div>
                     <div className={styles.eventName}>{event.event}</div>
+                    {event.location && (
+                      <a
+                        href={event.location.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.locationLink}
+                      >
+                        {event.location.text} ↗
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

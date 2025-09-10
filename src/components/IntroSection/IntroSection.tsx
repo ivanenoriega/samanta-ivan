@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { WeddingData } from "@/data/weddingData";
 import CountdownTimer from "../TimerSection/CountdownTimer";
+import CalendarButton from "../CalendarButton/CalendarButton";
 import styles from "./IntroSection.module.scss";
 import Section from "../Section";
 
@@ -24,6 +25,7 @@ export default function IntroSection({ data }: IntroSectionProps) {
             priority
           />
           <CountdownTimer data={data} />
+          <CalendarButton data={data} />
         </div>
       </div>
     </Section>
