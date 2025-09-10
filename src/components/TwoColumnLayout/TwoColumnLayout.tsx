@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { weddingData } from "@/data/weddingData";
 import IntroSection from "@/components/IntroSection";
 import DetailsSection from "@/components/DetailsSection";
@@ -185,7 +185,9 @@ export default function TwoColumnLayout() {
         <ItinerarySection data={weddingData} />
         <DetailsSection data={weddingData} />
         <GallerySection data={weddingData} />
-        <ConfirmationSection data={weddingData} />
+        <Suspense fallback={<div>Loading confirmation form...</div>}>
+          <ConfirmationSection data={weddingData} />
+        </Suspense>
       </div>
     </div>
   );

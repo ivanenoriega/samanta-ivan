@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     const { nombre, apellido, email, telefono, asistencia } = body;
 
     // Validate required fields
-    if (!nombre || !apellido || !email || asistencia === undefined) {
+    if (!nombre || !apellido || asistencia === undefined) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     const attendanceRecord = {
       nombre,
       apellido,
-      email,
+      email: email || "",
       telefono: telefono || "",
       asistencia,
       fechaConfirmacion: new Date(),

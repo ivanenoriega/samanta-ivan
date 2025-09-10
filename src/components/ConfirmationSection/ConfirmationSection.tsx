@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Section from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/Button";
@@ -21,6 +22,7 @@ interface FormData {
 }
 
 export default function ConfirmationSection({}: ConfirmationSectionProps) {
+  const searchParams = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     nombre: "",
@@ -35,6 +37,20 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
     "success"
   );
   const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
+
+  // Extract URL parameters and preload form fields
+  useEffect(() => {
+    const name = searchParams.get("name");
+    const lastName = searchParams.get("last_name");
+
+    if (name || lastName) {
+      setFormData((prev) => ({
+        ...prev,
+        nombre: name || prev.nombre,
+        apellido: lastName || prev.apellido,
+      }));
+    }
+  }, [searchParams]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -89,9 +105,15 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
     setSubmitMessage("");
 
     try {
+      // Use URL parameters if available, otherwise use form data or fallback values
+      const name =
+        searchParams.get("name") || formData.nombre || "No confirmado";
+      const lastName =
+        searchParams.get("last_name") || formData.apellido || "No confirmado";
+
       const declineData = {
-        nombre: "No confirmado",
-        apellido: "No confirmado",
+        nombre: name,
+        apellido: lastName,
         email: "no-confirmado@example.com",
         telefono: "No proporcionado",
         asistencia: false,
@@ -208,14 +230,13 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="email">Email *</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              required
             />
           </div>
 
