@@ -8,7 +8,7 @@ import {
   generateGoogleCalendarUrl,
   generateOutlookCalendarUrl,
   generateYahooCalendarUrl,
-  downloadICSFile,
+  generateAppleCalendarUrl,
 } from "@/utils/calendarUtils";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
@@ -34,8 +34,8 @@ export default function CalendarButton({ data }: CalendarButtonProps) {
       case "yahoo":
         window.open(generateYahooCalendarUrl(event), "_blank");
         break;
-      case "ics":
-        downloadICSFile(event);
+      case "apple":
+        window.open(generateAppleCalendarUrl(event), "_blank");
         break;
     }
 
@@ -111,17 +111,17 @@ export default function CalendarButton({ data }: CalendarButtonProps) {
             <Button
               variant="secondary"
               size="large"
-              onClick={() => handleCalendarAction("ics")}
+              onClick={() => handleCalendarAction("apple")}
               className={styles.calendarOption}
             >
               <Image
-                src="/images/icons/calendar/download.png"
-                alt="Download ICS"
+                src="/images/icons/calendar/apple-logo.png"
+                alt="Apple Calendar"
                 width={32}
                 height={32}
                 className={styles.optionIcon}
               />
-              Descargar (.ics)
+              Apple Calendar
             </Button>
           </div>
         </div>

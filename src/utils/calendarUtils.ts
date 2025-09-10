@@ -72,6 +72,19 @@ export function generateYahooCalendarUrl(event: CalendarEvent): string {
   return `https://calendar.yahoo.com/?${params.toString()}`;
 }
 
+export function generateAppleCalendarUrl(event: CalendarEvent): string {
+  const params = new URLSearchParams({
+    title: event.title,
+    startdate: event.startDate,
+    enddate: event.endDate,
+    allday: event.allDay.toString(),
+    notes: event.description,
+    location: event.location,
+  });
+
+  return `webcal://p01-calendarws.icloud.com/ca/subscribe/1/${params.toString()}`;
+}
+
 export function downloadICSFile(event: CalendarEvent): void {
   const icsContent = [
     "BEGIN:VCALENDAR",
