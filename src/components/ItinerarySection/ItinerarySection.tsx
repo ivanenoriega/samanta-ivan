@@ -5,12 +5,13 @@ import styles from "./ItinerarySection.module.scss";
 import { SectionHeading } from "../SectionHeading";
 import Section from "../Section";
 import Image from "next/image";
+import { Button } from "../Button";
 
 interface ItinerarySectionProps {
   data: WeddingData;
 }
 
-export default function ItinerarySection({ data }: ItinerarySectionProps) {
+export default function ItinerarySection({}: ItinerarySectionProps) {
   const itineraryEvents = [
     {
       time: "12:00 hs",
@@ -109,21 +110,16 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
                     <div className={styles.eventTime}>{event.time}</div>
                     <div className={styles.eventName}>{event.event}</div>
                     {event.location && (
-                      <a
+                      <Button
                         href={event.location.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.locationLink}
+                        variant="secondary"
+                        size="small"
+                        className={styles.locationButton}
                       >
                         {event.location.text}
-                        <Image
-                          src="/images/icons/external-link.png"
-                          alt="External link"
-                          width={16}
-                          height={16}
-                          className={styles.externalLinkIcon}
-                        />
-                      </a>
+                      </Button>
                     )}
                   </div>
                 </div>

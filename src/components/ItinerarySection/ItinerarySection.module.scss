@@ -122,33 +122,9 @@
   text-align: left;
 }
 
-.locationLink {
-  font-family: $font-raleway;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: $forest-green;
-  letter-spacing: 0.01em;
-  text-align: left;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: color $transition-normal;
-  
-  &:hover {
-    color: $wood-brown;
-    text-decoration: underline;
-  }
-}
-
-.externalLinkIcon {
-  flex-shrink: 0;
-  opacity: 0.8;
-  transition: opacity $transition-normal;
-  
-  .locationLink:hover & {
-    opacity: 1;
-  }
+.locationButton {
+  margin-top: $spacing-xs;
+  align-self: flex-start;
 }
 
 @include mobile {
@@ -186,8 +162,8 @@
   .eventName {
     font-size: 1.1rem;
   }
-  
-  .locationLink {
-    font-size: 1.1rem;
+
+  .eventContent {
+    width: 100%;
   }
 }

@@ -94,15 +94,19 @@
 @include mobile {
   .modalOverlay {
     padding: $spacing-sm;
+    align-items: flex-start;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
   }
 
   .modalContent {
     max-width: 100%;
     margin: 0;
+    max-height: calc(100vh - #{$spacing-lg * 2});
   }
 
   .modalHeader {
-    padding: $spacing-md;
+    padding: $spacing-sm;
   }
 
   .modalTitle {
@@ -110,7 +114,8 @@
   }
 
   .modalBody {
-    padding: $spacing-md;
+    padding: $spacing-sm;
+    max-height: calc(100vh - #{$spacing-lg * 2} - 80px);
   }
 }
 
