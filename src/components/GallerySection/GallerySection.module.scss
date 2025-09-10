@@ -55,9 +55,9 @@
 }
 
 .carouselButton {
-  background: $wood-brown-transparent;
-  color: $chalk-white;
-  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: $wood-brown;
+  border: 2px solid $wood-brown-transparent;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -76,11 +76,27 @@
   box-sizing: border-box;
   flex-shrink: 0;
   flex-grow: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background: $wood-brown;
+    background: $chalk-white;
+    border-color: $wood-brown;
     transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
+
+  &:focus {
+    outline: 2px solid $wood-brown;
+    outline-offset: 2px;
+  }
+}
+
+.prevArrow {
+  transform: rotate(180deg);
+}
+
+.nextArrow {
+  // No rotation needed for next arrow
 }
 
 .carouselDots {
@@ -114,64 +130,9 @@
   }
 }
 
-// Modal Styles
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $spacing-lg;
-}
-
-.modalContent {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 1200px;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.closeButton {
-  position: absolute;
-  top: $spacing-lg;
-  right: $spacing-lg;
-  background: rgba(255, 255, 255, 0.2);
-  color: $chalk-white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 50px;
-  max-height: 50px;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: all $transition-normal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  padding: 0;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  flex-grow: 0;
-  z-index: 1001;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-  }
+// Gallery modal specific styles
+.galleryModal {
+  // Custom styling for gallery modal if needed
 }
 
 .modalCarousel {
@@ -182,6 +143,19 @@
   width: 100%;
   height: 100%;
   max-height: 80vh;
+}
+
+// Desktop navigation buttons - visible on desktop, hidden on mobile
+.desktopNavButton {
+  display: flex;
+}
+
+// Mobile navigation buttons container - hidden on desktop, visible on mobile
+.mobileNavButtons {
+  display: none;
+  justify-content: center;
+  gap: $spacing-lg;
+  margin-top: $spacing-md;
 }
 
 .modalImageContainer {
@@ -198,9 +172,9 @@
 }
 
 .modalCarouselButton {
-  background: rgba(255, 255, 255, 0.2);
-  color: $chalk-white;
-  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  color: $wood-brown;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -221,11 +195,27 @@
   flex-shrink: 0;
   flex-grow: 0;
   z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   }
+
+  &:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+  }
+}
+
+.modalPrevArrow {
+  transform: rotate(180deg);
+}
+
+.modalNextArrow {
+  // No rotation needed for next arrow
 }
 
 .modalDots {
@@ -291,37 +281,26 @@
     flex-grow: 0;
   }
 
-  .modalOverlay {
-    padding: $spacing-sm;
+  // Hide desktop navigation buttons on mobile
+  .desktopNavButton {
+    display: none !important;
   }
 
-  .modalContent {
-    max-height: 95vh;
+  // Show mobile navigation buttons on mobile
+  .mobileNavButtons {
+    display: flex !important;
   }
 
-  .closeButton {
-    top: $spacing-sm;
-    right: $spacing-sm;
+  // Smaller mobile navigation buttons
+  .mobileNavButton {
     width: 40px;
     height: 40px;
     min-width: 40px;
     min-height: 40px;
     max-width: 40px;
     max-height: 40px;
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    flex-grow: 0;
-  }
-
-  .modalCarouselButton {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 50px;
-    max-height: 50px;
-    font-size: 1.5rem;
-    margin: 0 $spacing-sm;
+    font-size: 1.2rem;
+    margin: 0;
     flex-shrink: 0;
     flex-grow: 0;
   }

@@ -45,7 +45,7 @@
 @include mobile {
   .optionsGrid {
     grid-template-columns: 1fr;
-    gap: $spacing-sm;
+    gap: $spacing-xs;
   }
   
   .calendarOption {
@@ -56,5 +56,6 @@
   .optionIcon {
     width: 24px;
     height: 24px;
+    margin-bottom: 0;
   }
 }

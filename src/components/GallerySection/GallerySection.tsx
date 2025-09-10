@@ -6,6 +6,7 @@ import { WeddingData } from "@/data/weddingData";
 import styles from "./GallerySection.module.scss";
 import { SectionHeading } from "../SectionHeading";
 import Section from "../Section";
+import Modal from "../Modal/Modal";
 
 interface GallerySectionProps {
   data: WeddingData;
@@ -46,9 +47,7 @@ export default function GallerySection({ data }: GallerySectionProps) {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") {
-      closeModal();
-    } else if (e.key === "ArrowLeft") {
+    if (e.key === "ArrowLeft") {
       prevModalImage();
     } else if (e.key === "ArrowRight") {
       nextModalImage();
@@ -72,7 +71,13 @@ export default function GallerySection({ data }: GallerySectionProps) {
               onClick={prevImage}
               aria-label="Previous image"
             >
-              ‹
+              <Image
+                src="/images/icons/right-arrow.png"
+                alt="Previous"
+                width={20}
+                height={20}
+                className={styles.prevArrow}
+              />
             </button>
 
             <div className={styles.carouselContainer}>
@@ -103,7 +108,13 @@ export default function GallerySection({ data }: GallerySectionProps) {
               onClick={nextImage}
               aria-label="Next image"
             >
-              ›
+              <Image
+                src="/images/icons/right-arrow.png"
+                alt="Next"
+                width={20}
+                height={20}
+                className={styles.nextArrow}
+              />
             </button>
           </div>
 
@@ -122,73 +133,106 @@ export default function GallerySection({ data }: GallerySectionProps) {
         </div>
       </Section>
 
-      {/* Full Screen Modal */}
-      {isModalOpen && (
+      {/* Gallery Modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        variant="gallery"
+        className={styles.galleryModal}
+      >
         <div
-          className={styles.modalOverlay}
-          onClick={closeModal}
+          className={styles.modalCarousel}
           onKeyDown={handleKeyDown}
           tabIndex={-1}
         >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
+          {/* Desktop navigation buttons - positioned on sides */}
+          <button
+            className={`${styles.modalCarouselButton} ${styles.desktopNavButton}`}
+            onClick={prevModalImage}
+            aria-label="Previous image"
           >
-            <button
-              className={styles.closeButton}
-              onClick={closeModal}
-              aria-label="Close modal"
-            >
-              ×
-            </button>
+            <Image
+              src="/images/icons/right-arrow.png"
+              alt="Previous"
+              width={24}
+              height={24}
+              className={styles.modalPrevArrow}
+            />
+          </button>
 
-            <div className={styles.modalCarousel}>
-              <button
-                className={styles.modalCarouselButton}
-                onClick={prevModalImage}
-                aria-label="Previous image"
-              >
-                ‹
-              </button>
-
-              <div className={styles.modalImageContainer}>
-                <Image
-                  src={data.galleryImages[modalCurrentImage]}
-                  alt={`Samanta & Ivan - Photo ${modalCurrentImage + 1}`}
-                  fill
-                  className={styles.modalImage}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                />
-              </div>
-
-              <button
-                className={styles.modalCarouselButton}
-                onClick={nextModalImage}
-                aria-label="Next image"
-              >
-                ›
-              </button>
-            </div>
-
-            <div className={styles.modalDots}>
-              {data.galleryImages.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.modalDot} ${
-                    index === modalCurrentImage ? styles.active : ""
-                  }`}
-                  onClick={() => setModalCurrentImage(index)}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <div className={styles.modalCounter}>
-              {modalCurrentImage + 1} / {data.galleryImages.length}
-            </div>
+          <div className={styles.modalImageContainer}>
+            <Image
+              src={data.galleryImages[modalCurrentImage]}
+              alt={`Samanta & Ivan - Photo ${modalCurrentImage + 1}`}
+              fill
+              className={styles.modalImage}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+            />
           </div>
+
+          <button
+            className={`${styles.modalCarouselButton} ${styles.desktopNavButton}`}
+            onClick={nextModalImage}
+            aria-label="Next image"
+          >
+            <Image
+              src="/images/icons/right-arrow.png"
+              alt="Next"
+              width={24}
+              height={24}
+              className={styles.modalNextArrow}
+            />
+          </button>
         </div>
-      )}
+
+        {/* Mobile navigation buttons - positioned below image */}
+        <div className={styles.mobileNavButtons}>
+          <button
+            className={`${styles.modalCarouselButton} ${styles.mobileNavButton}`}
+            onClick={prevModalImage}
+            aria-label="Previous image"
+          >
+            <Image
+              src="/images/icons/right-arrow.png"
+              alt="Previous"
+              width={20}
+              height={20}
+              className={styles.modalPrevArrow}
+            />
+          </button>
+
+          <button
+            className={`${styles.modalCarouselButton} ${styles.mobileNavButton}`}
+            onClick={nextModalImage}
+            aria-label="Next image"
+          >
+            <Image
+              src="/images/icons/right-arrow.png"
+              alt="Next"
+              width={20}
+              height={20}
+              className={styles.modalNextArrow}
+            />
+          </button>
+        </div>
+
+        <div className={styles.modalDots}>
+          {data.galleryImages.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.modalDot} ${
+                index === modalCurrentImage ? styles.active : ""
+              }`}
+              onClick={() => setModalCurrentImage(index)}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className={styles.modalCounter}>
+          {modalCurrentImage + 1} / {data.galleryImages.length}
+        </div>
+      </Modal>
     </>
   );
 }

@@ -167,31 +167,6 @@ export default function TwoColumnLayout() {
             backgroundImage: `url(${getImageUrl(currentSection)})`,
           }}
         />
-        {/* Debug info */}
-        <div
-          style={{
-            position: "absolute",
-            top: "10px",
-            left: "10px",
-            color: "white",
-            zIndex: 10,
-            fontSize: "12px",
-            background: isTransitioning
-              ? "rgba(255,0,0,0.7)"
-              : "rgba(0,0,0,0.7)",
-            padding: "5px",
-            borderRadius: "3px",
-            transition: "background-color 0.3s ease",
-          }}
-        >
-          Section: {currentSection} / {localImages.length - 1}
-          <br />
-          Image: {localImages[currentSection] ? "Local" : "Fallback"}
-          <br />
-          Status: {isTransitioning ? "Transitioning" : "Ready"}
-          <br />
-          Scroll: {rightColumnRef.current?.scrollTop || 0}
-        </div>
         <div className={styles.overlay} />
         <div className={styles.content}>
           <h1 className={styles.coupleNames}>{weddingData.coupleNames}</h1>

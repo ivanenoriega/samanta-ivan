@@ -120,65 +120,14 @@
   100% { transform: rotate(360deg); }
 }
 
-// Modal styles
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 1rem;
-  animation: fadeIn 0.3s ease;
-}
-
-.modal {
-  background: $chalk-white;
-  border-radius: $border-radius-md;
-  padding: 0;
+// Confirmation modal specific styles
+.confirmationModal {
   max-width: 500px;
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px $shadow-dark;
-  animation: slideUp 0.3s ease;
-}
-
-.modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid $linen-beige;
-  
-  h3 {
-    margin: 0;
-    font-family: $font-playfair;
-    font-size: 1.5rem;
-    color: $wood-brown;
-    font-weight: 500;
-  }
-}
-
-.closeButton {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  font-size: 1.5rem !important;
-  font-weight: bold !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
 }
 
 .form {
-  padding: 2rem;
+  // Removed padding to let Modal component handle spacing
 }
 
 .formGroup {
@@ -216,6 +165,23 @@
       color: $smoke-gray;
       opacity: 0.6;
     }
+    
+    // Fix autocomplete background color
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+      -webkit-text-fill-color: $smoke-gray !important;
+      background-color: white !important;
+      background-clip: content-box !important;
+    }
+    
+    // For Firefox
+    &:-moz-autofill {
+      background-color: white !important;
+      color: $smoke-gray !important;
+    }
   }
 }
 
@@ -228,26 +194,6 @@
   border-top: 1px solid $linen-beige;
 }
 
-// Animations
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 // Responsive design
 @media (max-width: 768px) {
@@ -264,21 +210,12 @@
     }
   }
   
-  .modal {
-    margin: 1rem;
-    max-height: calc(100vh - 2rem);
-  }
-  
-  .modalHeader {
-    padding: 1rem 1.5rem;
-    
-    h3 {
-      font-size: 1.3rem;
-    }
+  .confirmationModal {
+    max-height: 100vh;
   }
   
   .form {
-    padding: 1.5rem;
+    // Removed padding to let Modal component handle spacing
   }
   
   .formActions {

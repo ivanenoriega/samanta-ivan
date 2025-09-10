@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Section from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/Button";
+import Modal from "@/components/Modal/Modal";
 import { WeddingData } from "@/data/weddingData";
 import styles from "./ConfirmationSection.module.scss";
 
@@ -176,94 +177,80 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
       )}
 
       {/* Modal */}
-      {isModalOpen && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setIsModalOpen(false)}
-        >
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.modalHeader}>
-              <h3>Confirmar Asistencia</h3>
-              <Button
-                onClick={() => setIsModalOpen(false)}
-                variant="secondary"
-                size="small"
-                className={styles.closeButton}
-              >
-                ×
-              </Button>
-            </div>
-
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.formGroup}>
-                <label htmlFor="nombre">Nombre *</label>
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  value={formData.nombre}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="apellido">Apellido *</label>
-                <input
-                  type="text"
-                  id="apellido"
-                  name="apellido"
-                  value={formData.apellido}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="telefono">Teléfono</label>
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  value={formData.telefono}
-                  onChange={handleInputChange}
-                />
-              </div>
-
-              <div className={styles.formActions}>
-                <Button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  variant="secondary"
-                  size="medium"
-                >
-                  Cancelar
-                </Button>
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  variant="primary"
-                  size="medium"
-                >
-                  {isSubmitting ? "Enviando..." : "Confirmar"}
-                </Button>
-              </div>
-            </form>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Confirmar Asistencia"
+        className={styles.confirmationModal}
+      >
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="nombre">Nombre *</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              value={formData.nombre}
+              onChange={handleInputChange}
+              required
+            />
           </div>
-        </div>
-      )}
+
+          <div className={styles.formGroup}>
+            <label htmlFor="apellido">Apellido *</label>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              value={formData.apellido}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="telefono">Teléfono</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              value={formData.telefono}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className={styles.formActions}>
+            <Button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              variant="secondary"
+              size="medium"
+            >
+              Cancelar
+            </Button>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              variant="primary"
+              size="medium"
+            >
+              {isSubmitting ? "Enviando..." : "Confirmar"}
+            </Button>
+          </div>
+        </form>
+      </Modal>
     </Section>
   );
 }
