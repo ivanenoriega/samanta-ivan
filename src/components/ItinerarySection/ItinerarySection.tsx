@@ -34,7 +34,7 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
       event: "Recepción",
       location: {
         text: "Ubicación",
-        url: "https://maps.app.goo.gl/zhzCR5vr27PRZGb17",
+        url: "https://maps.app.goo.gl/D7gqPx2d9evTCwoe8?g_st=ipc",
       },
       icon: (
         <Image
@@ -115,7 +115,14 @@ export default function ItinerarySection({ data }: ItinerarySectionProps) {
                         rel="noopener noreferrer"
                         className={styles.locationLink}
                       >
-                        {event.location.text} ↗
+                        {event.location.text}
+                        <Image
+                          src="/images/icons/external-link.png"
+                          alt="External link"
+                          width={16}
+                          height={16}
+                          className={styles.externalLinkIcon}
+                        />
                       </a>
                     )}
                   </div>

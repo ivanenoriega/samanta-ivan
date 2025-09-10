@@ -181,7 +181,6 @@ export default function ConfirmationSection({}: ConfirmationSectionProps) {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="Confirmar Asistencia"
-        className={styles.confirmationModal}
       >
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>

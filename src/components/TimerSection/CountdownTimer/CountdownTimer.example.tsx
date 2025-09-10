@@ -8,8 +8,7 @@ export function CountdownTimerExamples() {
     coupleNames: "Samanta & Ivan",
     weddingDate: "22.11.2025",
     weddingTime: "16:00",
-    quote:
-      "Todos somos mortales, hasta el primer beso y la segunda copa de vino",
+    quote: "Cuando encontré tu mano, entendí que era mi hogar.",
     eventLocation: "El Quincho Multiespacio",
     eventAddress: "Blas Pascal 5940, X5021 Córdoba",
     galleryImages: [],

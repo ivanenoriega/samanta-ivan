@@ -11,26 +11,29 @@ export interface CalendarEvent {
 
 export function generateCalendarEvent(data: WeddingData): CalendarEvent {
   // Parse the wedding date (format: DD.MM.YYYY)
-  const [day, month, year] = data.weddingDate.split('.');
-  const weddingDateTime = new Date(`${year}-${month}-${day}T${data.weddingTime}:00`);
-  
-  // Create end time (assuming 6 hours duration)
+  const [day, month, year] = data.weddingDate.split(".");
+  const weddingDateTime = new Date(
+    `${year}-${month}-${day}T${data.weddingTime}:00`
+  );
+
+  // Create end time (event ends at midnight)
   const endDateTime = new Date(weddingDateTime);
-  endDateTime.setHours(endDateTime.getHours() + 6);
+  endDateTime.setHours(24, 0, 0, 0);
 
   return {
     title: `Boda de ${data.coupleNames}`,
     description: `${data.quote}\n\n${data.dressCodeInfo}\n\n${data.tipsInfo}`,
     location: `${data.eventLocation}, ${data.eventAddress}`,
-    startDate: weddingDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-    endDate: endDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+    startDate:
+      weddingDateTime.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z",
+    endDate: endDateTime.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z",
     allDay: false,
   };
 }
 
 export function generateGoogleCalendarUrl(event: CalendarEvent): string {
   const params = new URLSearchParams({
-    action: 'TEMPLATE',
+    action: "TEMPLATE",
     text: event.title,
     dates: `${event.startDate}/${event.endDate}`,
     details: event.description,
@@ -42,8 +45,8 @@ export function generateGoogleCalendarUrl(event: CalendarEvent): string {
 
 export function generateOutlookCalendarUrl(event: CalendarEvent): string {
   const params = new URLSearchParams({
-    path: '/calendar/action/compose',
-    rru: 'addevent',
+    path: "/calendar/action/compose",
+    rru: "addevent",
     subject: event.title,
     startdt: event.startDate,
     enddt: event.endDate,
@@ -56,9 +59,9 @@ export function generateOutlookCalendarUrl(event: CalendarEvent): string {
 
 export function generateYahooCalendarUrl(event: CalendarEvent): string {
   const params = new URLSearchParams({
-    v: '60',
-    view: 'd',
-    type: '20',
+    v: "60",
+    view: "d",
+    type: "20",
     title: event.title,
     st: event.startDate,
     et: event.endDate,
@@ -71,25 +74,25 @@ export function generateYahooCalendarUrl(event: CalendarEvent): string {
 
 export function downloadICSFile(event: CalendarEvent): void {
   const icsContent = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Wedding Calendar//EN',
-    'BEGIN:VEVENT',
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Wedding Calendar//EN",
+    "BEGIN:VEVENT",
     `UID:${Date.now()}@wedding.com`,
-    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`,
     `DTSTART:${event.startDate}`,
     `DTEND:${event.endDate}`,
     `SUMMARY:${event.title}`,
-    `DESCRIPTION:${event.description.replace(/\n/g, '\\n')}`,
+    `DESCRIPTION:${event.description.replace(/\n/g, "\\n")}`,
     `LOCATION:${event.location}`,
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ].join('\r\n');
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
 
-  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-  const link = document.createElement('a');
+  const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+  const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
-  link.download = `boda-${event.title.toLowerCase().replace(/\s+/g, '-')}.ics`;
+  link.download = `boda-${event.title.toLowerCase().replace(/\s+/g, "-")}.ics`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

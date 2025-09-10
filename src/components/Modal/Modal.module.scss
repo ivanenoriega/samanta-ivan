@@ -7,13 +7,17 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
   padding: $spacing-md;
   backdrop-filter: blur(4px);
+  margin: 0;
+  border: none;
 }
 
 .modalContent {
@@ -25,6 +29,8 @@
   max-height: 90vh;
   overflow: hidden;
   animation: modalSlideIn 0.3s ease-out;
+  position: relative;
+  z-index: 10000;
 }
 
 @keyframes modalSlideIn {
@@ -115,12 +121,16 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
   padding: $spacing-lg;
+  margin: 0;
+  border: none;
 }
 
 .galleryContent {
@@ -136,6 +146,7 @@
   background: transparent;
   border-radius: 0;
   box-shadow: none;
+  z-index: 10000;
 }
 
 .galleryCloseButton {

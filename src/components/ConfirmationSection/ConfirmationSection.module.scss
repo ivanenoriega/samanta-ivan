@@ -120,11 +120,7 @@
   100% { transform: rotate(360deg); }
 }
 
-// Confirmation modal specific styles
-.confirmationModal {
-  max-width: 500px;
-  width: 100%;
-}
+// Confirmation modal specific styles removed - using Modal component's default styles
 
 .form {
   // Removed padding to let Modal component handle spacing
@@ -210,9 +206,7 @@
     }
   }
   
-  .confirmationModal {
-    max-height: 100vh;
-  }
+  // Confirmation modal responsive styles removed - using Modal component's default styles
   
   .form {
     // Removed padding to let Modal component handle spacing
