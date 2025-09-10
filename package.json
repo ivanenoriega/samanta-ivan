@@ -2,6 +2,7 @@
   "name": "samanta-ivan",
   "version": "0.1.0",
   "private": true,
+  "description": "Invitación de boda para Samanta & Ivan",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
