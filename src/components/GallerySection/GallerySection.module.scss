@@ -156,6 +156,10 @@
   justify-content: center;
   gap: $spacing-lg;
   margin-top: $spacing-md;
+
+  @include mobile {
+    margin: 0;
+  }
 }
 
 .modalImageContainer {
@@ -223,6 +227,10 @@
   justify-content: center;
   gap: $spacing-xs;
   margin-top: $spacing-lg;
+
+  @include mobile {
+    margin: $spacing-lg 0;
+  }
 }
 
 .modalDot {
@@ -308,5 +316,21 @@
   .modalCounter {
     bottom: $spacing-sm;
     font-size: 1rem;
+  }
+}
+
+// Loading states for images
+.galleryImage,
+.modalImage {
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  
+  &.loading {
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  
+  &.loaded {
+    opacity: 1;
+    filter: none;
   }
 }

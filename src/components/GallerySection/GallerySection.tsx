@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { WeddingData } from "@/data/weddingData";
+import { imagePreloader } from "@/utils/imagePreloader";
 import styles from "./GallerySection.module.scss";
 import { SectionHeading } from "../SectionHeading";
 import Section from "../Section";
@@ -16,6 +17,34 @@ export default function GallerySection({ data }: GallerySectionProps) {
   const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalCurrentImage, setModalCurrentImage] = useState(0);
+  const [galleryImagesReady, setGalleryImagesReady] = useState(false);
+
+  // Check if gallery images are preloaded
+  useEffect(() => {
+    const checkGalleryImages = () => {
+      const allPreloaded = data.galleryImages.every((imageUrl) =>
+        imagePreloader.isImagePreloaded(imageUrl)
+      );
+      setGalleryImagesReady(allPreloaded);
+    };
+
+    // Check immediately
+    checkGalleryImages();
+
+    // Check periodically until all images are ready
+    const interval = setInterval(checkGalleryImages, 100);
+
+    // Clean up interval after 5 seconds to avoid infinite checking
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+      setGalleryImagesReady(true); // Assume ready after timeout
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, [data.galleryImages]);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % data.galleryImages.length);
@@ -94,9 +123,14 @@ export default function GallerySection({ data }: GallerySectionProps) {
                       alt={`Samanta & Ivan - Photo ${index + 1}`}
                       width={400}
                       height={400}
-                      className={styles.galleryImage}
+                      className={`${styles.galleryImage} ${
+                        galleryImagesReady ? styles.loaded : styles.loading
+                      }`}
                       onClick={() => openModal(index)}
                       style={{ cursor: "pointer" }}
+                      priority={index < 3} // Prioritize first 3 images
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                     />
                   </div>
                 ))}
@@ -165,8 +199,13 @@ export default function GallerySection({ data }: GallerySectionProps) {
               src={data.galleryImages[modalCurrentImage]}
               alt={`Samanta & Ivan - Photo ${modalCurrentImage + 1}`}
               fill
-              className={styles.modalImage}
+              className={`${styles.modalImage} ${
+                galleryImagesReady ? styles.loaded : styles.loading
+              }`}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+              priority
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
             />
           </div>
 

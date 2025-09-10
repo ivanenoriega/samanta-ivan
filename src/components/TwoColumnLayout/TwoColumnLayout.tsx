@@ -7,6 +7,7 @@ import DetailsSection from "@/components/DetailsSection";
 import ItinerarySection from "@/components/ItinerarySection";
 import GallerySection from "@/components/GallerySection";
 import ConfirmationSection from "@/components/ConfirmationSection";
+import { imagePreloader } from "@/utils/imagePreloader";
 import styles from "./TwoColumnLayout.module.scss";
 
 // Local background images for different sections
@@ -50,19 +51,22 @@ export default function TwoColumnLayout() {
   const rightColumnRef = useRef<HTMLDivElement>(null);
   const lastSectionChange = useRef<number>(Date.now());
 
-  // Preload images
+  // Preload all images when component mounts (silently in background)
   useEffect(() => {
-    // Preload local images first
-    localImages.forEach((imageUrl) => {
-      const img = new Image();
-      img.src = imageUrl;
-    });
+    const preloadAllImages = async () => {
+      try {
+        console.log("Starting comprehensive image preloading...");
 
-    // Also preload fallback images as backup
-    fallbackImages.forEach((imageUrl) => {
-      const img = new Image();
-      img.src = imageUrl;
-    });
+        // Start preloading all images silently
+        await imagePreloader.preloadAllWeddingImages();
+
+        console.log("All images preloaded successfully!");
+      } catch (error) {
+        console.error("Error preloading images:", error);
+      }
+    };
+
+    preloadAllImages();
   }, []);
 
   useEffect(() => {
