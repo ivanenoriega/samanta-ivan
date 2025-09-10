@@ -73,16 +73,9 @@ export function generateYahooCalendarUrl(event: CalendarEvent): string {
 }
 
 export function generateAppleCalendarUrl(event: CalendarEvent): string {
-  const params = new URLSearchParams({
-    title: event.title,
-    startdate: event.startDate,
-    enddate: event.endDate,
-    allday: event.allDay.toString(),
-    notes: event.description,
-    location: event.location,
-  });
-
-  return `webcal://p01-calendarws.icloud.com/ca/subscribe/1/${params.toString()}`;
+  // For Apple Calendar, we'll use the ICS file download approach
+  // This is more reliable than the webcal:// subscription method
+  return "ics-download";
 }
 
 export function downloadICSFile(event: CalendarEvent): void {

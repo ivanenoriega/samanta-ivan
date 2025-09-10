@@ -8,7 +8,7 @@ import {
   generateGoogleCalendarUrl,
   generateOutlookCalendarUrl,
   generateYahooCalendarUrl,
-  generateAppleCalendarUrl,
+  downloadICSFile,
 } from "@/utils/calendarUtils";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
@@ -35,7 +35,8 @@ export default function CalendarButton({ data }: CalendarButtonProps) {
         window.open(generateYahooCalendarUrl(event), "_blank");
         break;
       case "apple":
-        window.open(generateAppleCalendarUrl(event), "_blank");
+        // For Apple Calendar, download ICS file instead of opening URL
+        downloadICSFile(event);
         break;
     }
 
