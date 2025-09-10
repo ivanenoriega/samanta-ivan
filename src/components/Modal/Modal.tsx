@@ -31,13 +31,26 @@ export default function Modal({
 
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
+      // Store current scroll position
+      const scrollY = window.scrollY;
       // Prevent body scroll when modal is open
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
+      // Restore scroll position and body styles
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     };
   }, [isOpen, onClose]);
 
